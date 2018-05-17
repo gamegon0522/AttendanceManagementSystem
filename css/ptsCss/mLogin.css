@@ -1,0 +1,113 @@
+
+*{list-style: none; text-decoration: none; margin: 0 auto;
+}
+.logIn{
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  background-image: url(../../image/pts/001.jpg);
+  /* background-image: url(../../img/pts/001.jpg);  */
+  height: 100vh;
+  align-items: center;
+	justify-content: center;
+  width: 100%;
+  z-index: 2;
+}
+
+.logInBox {
+text-align: center;
+padding-top: 8%;
+}
+
+.shadow {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 3;
+}
+
+.logInBox h1{   /*logInBox　h1 */
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.logInBox .ul {  /*logInBox　*/
+    text-align: center;
+    padding : 0;
+    width: 77%;
+    overflow: auto;
+    background-color: #434446;
+    background-color: rgba( 67, 68, 70, 0.8 );
+}
+
+.logInBox .ul .li:nth-of-type(1) input {
+    width: 78%;
+    height: 39px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-indent: 10px;
+}
+
+.logInBox .ul .li:nth-of-type(2) input {
+    width: 78%;
+    height: 39px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-indent: 10px;
+}
+
+.small{
+  font-size: 7px;
+    height: 34px;
+color: white;
+
+}
+.small a {
+  color: white;
+   text-decoration: underline;
+   font-weight: bold;
+}
+
+.small input {
+  margin-right: 5px;
+}
+
+.small, .button {
+  display: inline-block;
+}
+
+.button {
+  margin-bottom: 40px;
+  font-size: 25px;
+  height: 34px;
+  width: 100%;
+
+}
+
+.button input {
+  width: 100%;
+  height: 100%;
+  background-color:#3f6ac1;
+  color:white;
+
+}
+
+@media(min-width:320px){
+  .logInBox{max-width: 470px;}
+  .logInBox h1 {font-size:30px;}
+  .button {
+    margin-bottom: 40px;
+    font-size: 25px;
+    height: 34px;
+    width: 35%;
+  }
+}
+
+.error {
+  color: red;
+  font-size: 10px;
+  margin-top: -5px;
+}

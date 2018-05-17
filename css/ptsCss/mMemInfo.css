@@ -1,0 +1,188 @@
+*{margin: 0 auto;
+font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, sans-serif;
+}
+.sectionB {
+    position: relative;
+    background-position: bottom;
+    background-size: cover;
+    background-image: url(../../image/pts/register.jpg);
+    height: 100vh;
+    align-items: center;
+  	justify-content: center;
+    z-index: 2;
+
+}
+
+.shadow {
+
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 3;
+}
+
+.sectionB .register h3 {
+  text-align: center;
+  font-size: 23px;
+  color: white;
+}
+
+.sectionB .register .table {
+    border-spacing: 4px 4px;
+    padding: 10px 20px 10px 20px;
+    background-color: #434446;
+    background-color: rgba( 67, 68, 70, 0.8 );
+}
+
+.sectionB .register .th {
+  text-align: left;
+  width: 120px;
+  height: 20px;
+  color: white;
+  font-weight: normal;
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding: 0;
+font-weight: bold;
+
+}
+
+.sectionB .register .td {
+  width: 200px;
+  padding: 0;
+  font-size: 14px;
+  color: white;
+
+}
+
+.sectionB .register .td input, .sectionB .register .td select {
+  width: 100%;
+  border:0;
+  text-indent: 10px;
+  height: 20px;
+  padding: 0;
+  color : gray;
+  font-size: 13px;
+}
+
+#password {
+  font-size: 10px;
+}
+
+#password:hover {
+  /* background-color: black;
+  color:white; */
+  text-decoration: underline;
+  font-size: 10px;
+}
+
+.sectionB .register .td input:focus {
+  outline: none;
+}
+
+
+select option:checked,
+select option:hover {
+background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+#rest_time{
+  text-align: center;
+}
+
+#start_time {
+  width: 100%;
+    text-align: center;
+}
+
+#end_time {
+  width: 100%;
+  text-align: center;
+}
+
+.cancle {
+width: 100%;
+  font-size: 20px;
+  height: 30px;
+  margin: 7px 0 0 0;
+  letter-spacing: 5px;
+}
+
+.update {
+  width: 100%;
+  font-size: 15px;
+  height: 30px;
+margin: 7px 0 0 0;
+}
+
+#error{
+    height: 15px;
+    color : red;
+    font-size: 8px;
+}
+
+#notice {
+  height: 15px;
+  color : white;
+  font-size: 10px;
+}
+
+.sectionB .register .fix, .sectionB .register .create {
+  display: inline-block;
+  text-align: center;
+  width: 182px;
+}
+
+.sectionB .register .fix input, .sectionB .register .create input {
+  /* bottom: 60px; */
+  display: block;
+  background-color: #f79721;
+  /* position: absolute; */
+  padding: 0;
+  width: 182px;
+
+}
+
+                            /*上はスマホ画面*/
+@media(min-width:375px){    /*下はパソコン画面*/
+ #start_time {
+   width: 44%;
+ }
+
+ #end_time {
+   width: 44%;
+ }
+
+  .button {
+    display: inline-flex;
+    text-align: center;
+  }
+
+  .cancle {
+    width: 50%;
+    padding: 0;
+    height: 30px;
+    font-size: 15px;
+
+  }
+
+  .update {
+    width: 50%;
+    padding: 0;
+    height: 30px;
+    font-size: 15px;
+
+  }
+
+  .sectionB .register .table {
+    margin-top: 50px;
+
+  }
+
+  #rest_time{
+    text-align: left;
+  }
+
+}
