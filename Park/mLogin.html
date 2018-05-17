@@ -8,8 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-  <script src="https://use.fontawesome.com/926fe18a63.js"></script>
-  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <!-- <script src="https://use.fontawesome.com/926fe18a63.js"></script>
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet"> -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
@@ -32,8 +32,7 @@
           <!--type email - when '@' is not in input, it should be occurred-->
           <li class="li"><input type="password" name="" id="password" placeholder="パスワードを入力してください。" /></li>
           <li id="error" class="error"></li>
-          <li class="li small"><br /> パスワードを忘れた場合は
-            <a href="../memberInfo/mSerchPws.html" target="_blank">こちら</a></li>
+          <li class="li small"><br /> パスワードを忘れた場合は<a href="../memberInfo/mSerchPws.html" target="_blank" id="this1">こちら</a></li>
           <li class="li button"><input type="button" name="" value="ログイン" class="login" id="login" /></li>
           <!-- <input type="button" name="" value="ログイン" class="login" id="login"/>ログイン
 <button  class="login" id="login">ログイン</button>
@@ -97,8 +96,8 @@ firebase.initializeApp(config);
               login.textContent = "ログイン"
               alert("すでにログインされている状態です。");
               console.log(user.uid);
-              //window.location = '/mPunch.html'
-              window.location = '../punch.php'
+              window.location = '/mPunch.html'
+              //window.location = '../punch.php'
             }
           }
         } //END else
@@ -111,8 +110,8 @@ firebase.initializeApp(config);
       alert("ログイン成功");
 
       //메인 페이지로 이동
-      //window.location.href = "/mPunch.html"
-      window.location = '../punch.php'
+      window.location.href = "/mPunch.html"
+      //window.location = '../punch.php'
     }
 
 

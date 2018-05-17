@@ -62,6 +62,7 @@ font-size: 14px;
   text-indent: 10px;
   height: 20px;
   padding: 0;
+    font-size: 13px;
 }
 
 .sectionB .register .td input:focus {
@@ -76,11 +77,11 @@ font-size: 14px;
 
 .sectionB .register .table .nece .th {
   color: white;
-  font-weight: bold;
+d;
 }
 
 .sectionB .register .table .unnece .td input, .sectionB .register .table .unnece .td select, .sectionB .register .table .unnece .td  {
-  font-weight: bold;
+
   /* background-color: #bdbdbd; */
 
 }
@@ -157,7 +158,6 @@ margin: 7px 0 0 0;
     height: 20px;
     font-size: 15px;
     letter-spacing: 5px;
-
   }
 
   .update {

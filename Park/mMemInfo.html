@@ -54,13 +54,17 @@
     <div class="register">
      <form class="form" name="form">
        <table class="table" >
-         <tr class="tr"><th class="th" colspan="2"><h3 id="privatePage">個人情報登録</h3></th></tr>
+         <tr class="tr"><th class="th" colspan="2"><h3 id="privatePage">個人情報修正</h3></th></tr>
          <tr class="tr" id="error">
             <td class="td" colspan="2" id="notice"></td>
           </tr>
          <tr class="tr">
            <th class="th">E-mail</th>
            <td class="td"><input type="email" name="email" id="email" id="input" class="email" readonly/></td>
+         </tr>
+         <tr>
+           <th class="th">社員No.</th>
+           <td class="td"><input type="text" name="#" id="user_id" readonly/></td>
          </tr>
          <tr class="tr">
            <th class="th">氏名</th>
@@ -69,10 +73,6 @@
          <tr class="tr">
            <th class="th">氏名(カナ)</th>
            <td class="td"><input type="text" name="#" id="name_kana" readonly/></td>
-         </tr>
-         <tr>
-           <th class="th">社員No.</th>
-           <td class="td"><input type="text" name="#" id="user_id" readonly/></td>
          </tr>
          <tr class="tr">
            <th class="th">パスワード</th>
@@ -128,9 +128,7 @@
            <th class="th">業務</th>
            <td class="td"><input type="text" name="#" id="occupation" readonly/></td>
          </tr>
-
-         <td class="td" colspan="2"><button type="button" id="update" class="update">修正</button><button type="reset" class="cancle">キャンセル</button></td>
-
+         <td class="td" colspan="2"><button type="button" id="update" class="update">修正</button><button type="button" onclick='history.go(0); return false;' class="cancle">キャンセル</button></td>
        </table>
       </form>
     </div>
@@ -203,6 +201,7 @@ $(document).ready(function () {
     //  console.log(currentTimes);
       //ログインしたらログインしたユーザの情報がある
       firebaseEmailAuth.onAuthStateChanged(function (user) {
+  
 
         if (user) {
 
@@ -220,6 +219,8 @@ $(document).ready(function () {
             user_id = snapshot.val().user_id;
             password = snapshot.val().password;
 
+
+
             document.getElementById("login").textContent = "ログアウト";
             document.getElementById("login").href =  "../log/mLogout.html";
 
@@ -231,10 +232,10 @@ $(document).ready(function () {
                               document.getElementById("notice").textContent ="修正が必要方は修正ボタン押してください。";
 
                             //  document.getElementById("password").value = snapshot.val().password;
-                              console.log("there is password : " + password);
+                            //  console.log("there is password : " + password);
                               var d = $('#password').val();
-                              console.log("d : "+d);
-                              console.log(snapshot.val().password);
+                          ////    console.log("d : "+d);
+                          //    console.log(snapshot.val().password);
                               document.getElementById("birthday").value = snapshot.val().birthday;
                               document.getElementById("department").value = snapshot.val().department;
 
@@ -243,11 +244,11 @@ $(document).ready(function () {
                                   document.getElementById("email").value = snapshot.val().email;
                                   document.getElementById("email").placeholder = snapshot.val().email;
 
-                                  console.log("there is email : " + email);
+                            //      console.log("there is email : " + email);
                               } else {
 
                                   document.getElementById("email").placeholder = "入力してください。";
-                                  console.log("there is no email : " + email);
+                          //        console.log("there is no email : " + email);
                               }
 
                               //2.user_name
@@ -255,11 +256,11 @@ $(document).ready(function () {
                                   document.getElementById("user_name").placeholder = snapshot.val().user_name;
                                   document.getElementById("user_name").value = snapshot.val().user_name;
 
-                                  console.log("there is user_name : " + user_name);
+                            ////      console.log("there is user_name : " + user_name);
                               } else {
                                   //없으면 더미 데이터 넣어준다.
                                   document.getElementById("user_name").placeholder = "入力してください。";
-                                  console.log("there is no user_name : " + user_name);
+                              /////    console.log("there is no user_name : " + user_name);
                               }
 
                               //3.name_kana
@@ -267,54 +268,54 @@ $(document).ready(function () {
                                   document.getElementById("name_kana").placeholder = snapshot.val().name_kana;
                                   document.getElementById("name_kana").value = snapshot.val().name_kana;
                                   document.getElementById("email").style.color="gray";
-                                  console.log("there is name_kana : " + name_kana);
+                              //    console.log("there is name_kana : " + name_kana);
                               } else {
 
                                   document.getElementById("name_kana").placeholder = "入力してください。";
-                                  console.log("there is no name_kana : " + name_kana);
+                            //      console.log("there is no name_kana : " + name_kana);
                               }
 
                               //4.user_id
                               if (snapshot.val().user_id) {
                                   document.getElementById("user_id").placeholder = snapshot.val().user_id;
                                   document.getElementById("user_id").value = snapshot.val().user_id;
-                                  console.log("there is user_id : " + user_id);
+                            //      console.log("there is user_id : " + user_id);
                               } else {
 
                                   document.getElementById("user_id").placeholder = "入力してください。";
-                                  console.log("there is no user_id : " + user_id);
+                            //      console.log("there is no user_id : " + user_id);
                               }
                               //5.workplace
                               if (snapshot.val().workplace) {
                                   document.getElementById("workplace").placeholder = snapshot.val().workplace;
                                   document.getElementById("workplace").value = snapshot.val().workplace;
-                                  console.log("there is workplace : " + workplace);
+                              //    console.log("there is workplace : " + workplace);
                               } else {
 
                                   document.getElementById("workplace").placeholder = "入力してください。";
-                                  console.log("there is no workplace : " + workplace);
+                              //    console.log("there is no workplace : " + workplace);
                               }
 
                               //6.division
                               if (snapshot.val().division) {
                                   document.getElementById("division").placeholder = snapshot.val().division;
                                   document.getElementById("division").value = snapshot.val().division;
-                                  console.log("there is division : " + division);
+                              //    console.log("there is division : " + division);
                               } else {
 
                                   document.getElementById("division").placeholder = "入力してください。";
-                                  console.log("there is no division : " + division);
+                              //    console.log("there is no division : " + division);
                               }
 
                               //7.occupation
                               if (snapshot.val().occupation) {
                                   document.getElementById("occupation").placeholder = snapshot.val().occupation;
                                   document.getElementById("occupation").value = snapshot.val().occupation;
-                                  console.log("there is occupation : " + occupation);
+                              //    console.log("there is occupation : " + occupation);
                               } else {
 
                                   document.getElementById("occupation").placeholder = "入力してください。";
-                                  console.log("there is no occupation : " + occupation);
+                              //    console.log("there is no occupation : " + occupation);
                               }
 
             }else{
@@ -335,31 +336,31 @@ $(document).ready(function () {
                               //3.start_time
                               if (snapshot.val().start_time) {
                                   document.getElementById("start_time").value = snapshot.val().start_time;
-                                  console.log("there is start_time : " + start_time);
+                              //    console.log("there is start_time : " + start_time);
                               } else {
 
                                   document.getElementById("start_time").value = "00:00";
-                                  console.log("there is no start_time : " + start_time);
+                              //    console.log("there is no start_time : " + start_time);
                               }
 
                               //3.end_time
                               if (snapshot.val().end_time) {
                                   document.getElementById("end_time").value = snapshot.val().end_time;
-                                  console.log("there is end_time : " + end_time);
+                              //    console.log("there is end_time : " + end_time);
                               } else {
 
                                   document.getElementById("end_time").value = "00:00";
-                                  console.log("there is no end_time : " + end_time);
+                              //    console.log("there is no end_time : " + end_time);
                               }
 
                               //3.rest_time
                               if (snapshot.val().rest_time) {
                                   document.getElementById("rest_time").value = snapshot.val().rest_time;
-                                  console.log("there is rest_time : " + rest_time);
+                              //    console.log("there is rest_time : " + rest_time);
                               } else {
 
                                   document.getElementById("rest_time").value = "00:00";
-                                  console.log("there is no rest_time : " + rest_time);
+                              //    console.log("there is no rest_time : " + rest_time);
                               }
             }else{
 
@@ -381,22 +382,22 @@ $(document).ready(function () {
                               if (snapshot.val().departure_station) {
                                   document.getElementById("departure_station").placeholder = snapshot.val().departure_station;
                                   document.getElementById("departure_station").value = snapshot.val().departure_station;
-                                  console.log("there is departure_station : " + departure_station);
+                                //  console.log("there is departure_station : " + departure_station);
                               } else {
 
                                   document.getElementById("departure_station").placeholder = "入力してください。";
-                                  console.log("there is no departure_station : " + departure_station);
+                                //  console.log("there is no departure_station : " + departure_station);
                               }
 
                               //3.arrival_station
                               if (snapshot.val().arrival_station) {
                                   document.getElementById("arrival_station").placeholder = snapshot.val().arrival_station;
                                   document.getElementById("arrival_station").value = snapshot.val().arrival_station;
-                                  console.log("there is arrival_station : " + arrival_station);
+                                //  console.log("there is arrival_station : " + arrival_station);
                               } else {
 
                                   document.getElementById("arrival_station").placeholder = "入力してください。";
-                                  console.log("there is no arrival_station : " + arrival_station);
+                                //  console.log("there is no arrival_station : " + arrival_station);
                               }
 
 
@@ -404,21 +405,21 @@ $(document).ready(function () {
                               if (snapshot.val().commutation_ticket) {
                                   document.getElementById("commutation_ticket").placeholder = snapshot.val().commutation_ticket;
                                   document.getElementById("commutation_ticket").value = snapshot.val().commutation_ticket;
-                                  console.log("there is commutation_ticket : " + commutation_ticket);
+                                //  console.log("there is commutation_ticket : " + commutation_ticket);
                               } else {
                                   document.getElementById("commutation_ticket").placeholder = "例)定期券";
-                                  console.log("there is no commutation_ticket : " + commutation_ticket);
+                                //  console.log("there is no commutation_ticket : " + commutation_ticket);
                               }
 
                               //3.costs
                               if (snapshot.val().costs) {
                                   document.getElementById("costs").placeholder = snapshot.val().costs;
                                   document.getElementById("costs").value = snapshot.val().costs;
-                                  console.log("there is costs : " + costs);
+                                //  console.log("there is costs : " + costs);
                               } else {
 
                                   document.getElementById("costs").placeholder = "数字で入力してください。";
-                                  console.log("there is no costs : " + costs);
+                                //  console.log("there is no costs : " + costs);
                               }
 
             } else{
@@ -496,17 +497,16 @@ $(document).ready(function () {
               console.log(user_name);
 
             //ボタンが登録に帰る
-            update.textContent = "登録"
+            update.textContent = "修正完了"
 
 
         } else {
-                console.log("登録 버튼 - input file 사라지게 input text태그 사라지고 p 태그에 넣고 저장버튼 비활성화 수정버튼 활성화를 시작합니다");
 
-                console.log("저장하기 함수 호출");
+              //  console.log("저장하기 함수 호출");
                 var saveChack = imageStateMsgAllSave();
                 update.textContent = "修正"
-                console.log("workplace : " + workplace)
-                console.log("저장되었습니다");
+              //  console.log("workplace : " + workplace)
+              //console.log("저장되었습니다");
         }
     }
 
@@ -531,11 +531,11 @@ $(document).ready(function () {
       var emailAddress = $('#email').val();
       firebaseEmailAuth.sendPasswordResetEmail(emailAddress).then(function() {
         // Email sent.
-        console.log("ff");
+
           alert("パスワード変更のURLを送りました。");
       }).catch(function(error) {
         // An error happened.
-        console.log("aa");
+
         alert("メール送信失敗");
       });
 
@@ -552,7 +552,7 @@ $(document).ready(function () {
 
     //データにいれる関数
     function imageStateMsgAllSave() {
-        console.log("imageStateMsgAllSave로 들어왔습니다");
+
 
 
         //var fileButton = document.getElementById("fileButton");
@@ -572,7 +572,7 @@ $(document).ready(function () {
         commutation_ticket = document.getElementById("commutation_ticket").value;
         occupation = document.getElementById("occupation").value;
         division = document.getElementById("division").value;
-        console.log("出発、到着　時間 - " + start_time + " : " + end_time)
+        //console.log("出発、到着　時間 - " + start_time + " : " + end_time)
         //alert("occupation : " + occupation);
 
 
