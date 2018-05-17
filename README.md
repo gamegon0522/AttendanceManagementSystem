@@ -1,2 +1,1 @@
-# AttendanceManagementSystem
-# AttendanceManagementSystem
+勤怠管理システムのソースです。
